@@ -1,0 +1,143 @@
+/* 全局样式重置和基础设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', sans-serif; /* 使用微软雅黑字体，提升中文显示效果 */
+}
+
+/* 页面布局和背景 */
+body {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+    min-height: 100vh;       /* 确保至少占满整个视口高度 */
+    background: linear-gradient(135deg, #3498db, #8e44ad); /* 渐变背景增加视觉吸引力 */
+    padding: 20px;           /* 移动设备上的边距 */
+}
+
+/* 游戏主容器样式 */
+.game-container {
+    background-color: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+    border-radius: 10px;     /* 圆角边框 */
+    padding: 20px;           /* 内边距 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* 阴影效果增加深度感 */
+    max-width: 500px;        /* 最大宽度限制 */
+    width: 100%;             /* 响应式宽度 */
+}
+
+/* 游戏标题样式 */
+h1 {
+    text-align: center;      /* 居中对齐 */
+    margin-bottom: 20px;     /* 下方间距 */
+    color: #2c3e50;          /* 深色文字增加可读性 */
+}
+
+/* 分数信息区域样式 */
+.game-info {
+    display: flex;
+    justify-content: space-between; /* 分数和最高分分布在两侧 */
+    margin-bottom: 15px;
+    font-size: 18px;         /* 增大字体提高可见性 */
+    font-weight: bold;       /* 加粗显示重要信息 */
+    color: #2c3e50;
+}
+
+/* 画布包装容器，用于定位游戏结束覆盖层 */
+.canvas-wrapper {
+    position: relative;      /* 相对定位，作为游戏结束覆盖层的参考 */
+    margin-bottom: 20px;
+}
+
+/* 游戏画布样式 */
+#gameCanvas {
+    display: block;
+    background-color: #f0f0f0; /* 浅灰色背景 */
+    border: 2px solid #2c3e50; /* 边框 */
+    border-radius: 5px;
+    margin: 0 auto;          /* 居中显示 */
+}
+
+/* 游戏结束覆盖层样式 */
+.game-over {
+    position: absolute;      /* 绝对定位，覆盖在游戏画布上 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* 半透明黑色背景 */
+    display: flex;
+    flex-direction: column;  /* 纵向排列子元素 */
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    display: none;           /* 默认隐藏 */
+}
+
+/* 游戏结束标题样式 */
+.game-over h2 {
+    color: #fff;             /* 白色文字在黑色背景上 */
+    margin-bottom: 15px;
+}
+
+/* 游戏结束分数显示样式 */
+.game-over p {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* 控制区域样式 */
+.controls {
+    text-align: center;      /* 居中对齐按钮和提示文字 */
+}
+
+/* 控制提示文字样式 */
+.controls p {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* 所有按钮的基础样式 */
+button {
+    background-color: #3498db; /* 蓝色按钮 */
+    color: white;            /* 白色文字 */
+    border: none;            /* 无边框 */
+    padding: 10px 20px;      /* 内边距确保按钮足够大，便于点击 */
+    margin: 5px;             /* 按钮间距 */
+    border-radius: 5px;      /* 圆角 */
+    cursor: pointer;         /* 鼠标指针样式 */
+    font-size: 16px;         /* 按钮文字大小 */
+    transition: background-color 0.3s; /* 平滑颜色过渡效果 */
+}
+
+/* 按钮悬停效果 */
+button:hover {
+    background-color: #2980b9; /* 深蓝色 */
+}
+
+/* 重新开始按钮特殊样式 */
+#restartButton {
+    background-color: #e74c3c; /* 红色，表示警示或重要操作 */
+}
+
+#restartButton:hover {
+    background-color: #c0392b; /* 深红色 */
+}
+
+/* 暂停按钮特殊样式 */
+#pauseButton {
+    background-color: #f39c12; /* 橙色，表示暂时状态 */
+}
+
+#pauseButton:hover {
+    background-color: #d35400; /* 深橙色 */
+}
+
+/* 响应式设计，适配小屏幕设备 */
+@media (max-width: 500px) {
+    #gameCanvas {
+        width: 100%;         /* 在小屏幕上使画布填满容器宽度 */
+        height: auto;        /* 保持宽高比 */
+    }
+} 
